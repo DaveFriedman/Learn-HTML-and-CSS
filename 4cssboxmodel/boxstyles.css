@@ -1,0 +1,68 @@
+body {
+    /* text-align: center; annoying, this doesn't align block boxes*/
+}
+
+h1, p {
+    background-color: #DDE0E3;
+}
+
+h1 {
+    padding: 50px;
+    border-bottom: 1px solid red; /* size style color */
+}
+
+p {
+    /* padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px; */
+    
+    /* padding: 20px 10px; /* padding: Vertical Horizontal */
+    /* Can also be: padding: top right bottom left; ex:  */
+    padding: 20px 0 20px 10px;
+    
+    margin-top: 25px;
+    margin-bottom: 50px;
+    /* Margin vs Padding:
+        - Margins are always transparent, padding takes the background color
+        - Margins are not included in an element's click area, padding is
+        - Margins collapse vertically, padding does not */
+}
+
+em, strong {
+    background-color: #B2D6FF;
+    display: inline; /* alternatively, display: block, but it's a bad idea */
+}
+
+strong {
+    margin: 50px; /* pretty bad, actually */
+    /* padding: 50px;  even worse */
+}
+
+div {
+    color: white;
+    background-color: #5995DA;
+    font-weight: bold;
+    padding: 20px;
+    text-align: center;
+    
+    border: 2px solid #5D6063;
+    border-radius: 5px;
+
+    width: 200px;
+
+    /* Change how CSS calculates width, to include content + padding + border.
+       Default is box-sizing: content-box, which includes content only.
+       border-box is considered a webdev best practice. */
+    box-sizing: border-box; 
+
+    margin: 20px auto; /* Vertical Horizontal */
+}
+
+/* Resetting styles, aka overriding browser defaults */
+
+* { /* star is the universal selector, like *.* */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
