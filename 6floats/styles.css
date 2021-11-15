@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    overflow: hidden;
+    background-color: lightslategrey;
+}
+
+.page {
+    width: 700px;
+    margin: 0 auto;
+    /*border: 2px solid red;*/
+}
+
+.menu {
+    height: 100px;
+    background-color: mediumblue;
+}
+
+/* Float: left both aligns the sidebar to the left, 
+   AND ALSO lets the surrounding elements flow around the sidebar */
+.sidebar {
+    float: left;
+    /* other float options are:
+       float: right, which aligns to the right, and
+       float: none, which reverts to the default flow */
+    height: 300px;
+    width: 200px;
+    background-color: darkred;
+}
+
+.content {
+    float: left;
+    height: 500px;
+    width: 450px;
+    background-color: burlywood;
+    padding: 20px;
+}
+
+.article-image {
+    float: left;
+    height: 100px;
+    width: 150px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.footer {
+    /* clear: both;
+    height: 200px; */
+    background-color: lightskyblue;
+    overflow:hidden
+}
+
+.fcolumn {
+    float: left;
+    height: 160px;
+    /* 31*3 = 93. 1.15*6 = 6.9. 93+6.9 = 99.9% */
+    width: 31%;
+    margin: 20px 1.15%;
+    color:white;
+    background-color: mediumblue;
+}
+
+.avatar {
+    float: left;
+    height: 60px;
+    width: 60px;
+    margin: 15px;
+    border-radius: 40px;
+    background-color: #D6E9FE;
+}
+
+
+.username {
+    margin-top: 15px;
+}
+
+.comment {
+    margin: 10px;
+    overflow: hidden;
+}
+
+p {
+    margin-bottom: 20px;
+}
