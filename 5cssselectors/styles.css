@@ -1,0 +1,128 @@
+.synopsis {
+    color: dimgrey;
+    font-style: italic;
+}
+
+/* Apply style only to em within synopsis*/
+.synopsis em {
+    font-style: normal;
+}
+
+.button {
+    color: white;
+    background-color: darkblue;
+    font-weight: bold;
+    padding: 20px;
+    text-align: center;
+    border: 2px solid darkgrey;
+    border-radius: 5px;
+
+    width: 200px;
+    margin: 20px auto;
+}
+
+.button:link,
+.button:visited {
+    display: block;
+    text-decoration: none;
+}
+
+.button:hover,
+.button:visited:hover {
+    color: white;
+    background-color: lightblue;
+}
+
+.button:active,
+.button:visited:active {
+    color: white;
+    background-color: blue;
+}
+
+
+.call-to-action {
+    /* Because .call-to-action is lower in this stylesheet than .button,
+       .cta is the style applied last (and, therefore, the visible style.
+       Precedence is determined solely in the stylesheet, not in the HTML. */
+    font-style: italic;
+    background-color: darkred;
+}
+
+.call-to-action:link,
+.call-to-action:visited {
+    font-style: italic;
+    background-color: brown;
+}
+
+.call-to-action:active,
+.call-to-action:visited:active {
+    background-color: chocolate;
+}
+
+/* ID selectors are selectors for only 1 element. Each element's ID must be 
+   unique. IDs start with a # instead of a .
+   IDs can be linked to: selectors.html#button2 is valid */
+#button2 {
+    color: darkgrey;
+}
+
+/* Multiple ID selectors can be tough to maintain, and are not best practice: */
+#button3,
+#button4,
+#buttonN {
+    color:darkolivegreen;
+}
+
+.page {
+    width: 600px;
+    margin: 0 auto;
+    
+}
+
+/* The > is a "child selector", and lets you select only the <p>s that are 
+   children of (aka, contained within) the .page class.
+   Apparently, this is how CSS does scope. */
+.page > p:first-of-type {
+    color: #7E8184;
+    font-style: italic;
+}
+
+/* There are 4 states a link can be in: initial (aka no interaction), visited, 
+   currently being hovered/mouseovered, and currently active/being click on */
+a:link {
+    color: orange;
+    text-decoration: green wavy underline;
+}
+
+a:visited {
+    color: peru;
+}
+
+/* hover typically applies to both both visited and unvisited states, but 
+   can be specified. Same with other states, ex: a:visited:active {}, etc. */
+a:visited:hover {
+    color:plum;
+}
+/* However, this breaks a:hover and a:active colors, for some reason.
+   Fix this by using a:visited:active {} */
+
+a:visited:active {
+    color:red;
+}
+
+a:hover {
+    color:aqua;
+    text-decoration: underline;
+}
+  
+a:active {
+    color: red;
+    text-decoration: underline;
+    text-decoration-style: double;
+}
+
+/* Psuedo-selectors, like :last-of-type, are useful in particular situations. 
+   In this case, the last <p> gets a bottom margin  */
+p:last-of-type {
+    margin-bottom: 50px;
+}

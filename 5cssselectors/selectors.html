@@ -6,18 +6,37 @@
         <title> CSS Selectors</title>
     </head>
     <body>
-        <h1> CSS Selectors</h1>
+        <div class='page'>
+            <h1> CSS Selectors</h1>
 
-        <p> CSS Selectors let you <em>select</em> individual HTML elements in 
-            an HTML document. This is <strong>super</strong> useful</p>
+            <p class='synopsis'> CSS Selectors let you <em>select</em> individual 
+                HTML elements in an HTML document. This is <strong>super</strong> 
+                useful.</p>
 
-        <p> Classes are very, very important, since they allow us to select
-            arbitrary boxes in web pages.</p>
-        
-        <p> They're also useful when applied to links, like this link: <br>
-            <a href='https://internetingishard.com'>Interneting is hard</a>, 
-            which needs styling.</p>
+            <p> Classes are very, very important, since they allow us to select
+                arbitrary boxes in web pages.<br>
+                Classes can be named nearly anything, but the convention is to use
+                all lowercase, and hyphens for spaces.</p>
+            
+            <p> They're also useful when applied to links, like this link: <br>
+                <a href='https://internetingishard.com'>Interneting is hard</a>, 
+                which needs styling.</p>
 
-        <div>Button One</div>
+            <!--
+            <div class='button'>Button One</div>
+            <div class='button call-to-action'>Button Two!</div>
+            <div class='call-to-action button'>Button Threeeee</div>
+            -->
+            
+            <a class='button' href='nowhere.html'>Button One</a>
+            <!-- <a class='button call-to-action' href='nowhere.html'>Button Two!</a> -->
+            <a id='button2' class='button' href='nowhere.html'>Button Two!</a>
+
+            
+            <div class='sidebar'>
+                <p>IF this page had a sidebar...</p>
+                <p>We'd have some problems with pseudo-classes.</p>
+
+        </div>
     </body>
 </html>
