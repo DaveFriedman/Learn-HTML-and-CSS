@@ -21,7 +21,19 @@
 }
 
 /* Float: left both aligns the sidebar to the left, 
-   AND ALSO lets the surrounding elements flow around the sidebar */
+   AND ALSO lets the surrounding elements flow around the sidebar 
+   Metaphor is to literally elevate aka "float" the object above 
+   the "page". The div only has height because the object was "pushing"
+   the  bottom of the div downwards, but now that the object is floated,
+   the bottom of the div snaps back. 
+   Need to tell the lower, child divs (here, the footer) to use the "clear" 
+   property to tell the child div not to be under the floating div's "shadow". 
+   Alternatively, use the "overflow" property to tell the parent div (the
+   div containing the float) to expand to the height of the float. Not using 
+   the overflow property might lead to either hidden content or scrollbars for 
+   the user, so they can see all the content.
+   Overflow seems better.
+   Both methods tell the browser to account for a float's height */
 .sidebar {
     float: left;
     /* other float options are:
@@ -52,7 +64,7 @@
     /* clear: both;
     height: 200px; */
     background-color: lightskyblue;
-    overflow:hidden
+    overflow: hidden
 }
 
 .fcolumn {
@@ -61,7 +73,7 @@
     /* 31*3 = 93. 1.15*6 = 6.9. 93+6.9 = 99.9% */
     width: 31%;
     margin: 20px 1.15%;
-    color:white;
+    color: white;
     background-color: mediumblue;
 }
 
@@ -81,7 +93,7 @@
 
 .comment {
     margin: 10px;
-    overflow: hidden;
+    overflow:hidden;
 }
 
 p {
