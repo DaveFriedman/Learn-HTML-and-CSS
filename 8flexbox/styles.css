@@ -1,3 +1,18 @@
+/* Flexbox has 2 types of boxes: "flex containers" and "flex items"
+Flex containers hold flex items, and define how flex items are positioned.
+Flex containers can hold other flex containers.
+Steps:
+1. Enable flexbox mode with display:flex
+2. Define horizontal alignment with justify-content:, center in this case
+   justify-content is justifying the child divs inside the container div.
+   it doesn't justify the flex container (aka the container div) itself.
+        2a. If there are multiple flex items in a flex container, they can be
+            distributed evenly using justify-content, or by wrapping groups in 
+            their own divs.
+3. Define vertical alignment, using align-items:, center in this case. The
+   options are: flex-start (top), flex-end (bottom), center, stretch, & baseline
+ */
+
 * {
     margin: 0;
     padding: 0;
@@ -5,12 +20,47 @@
 }
 
 .menu-container {
+    display: flex; /* enables browser's flexbox mode */
+    justify-content: center;
+    padding: 20px 0; /* params: vertical horizontal*/
+
     color: white;
-    background-color: lightblue;
-    padding: 20px 0;
+    background-color: blue;
 }
 
 .menu {
-    border: 1px solid white;
+    display: flex;
+    justify-content: space-between;
+    
+    /* border: 1px solid white; */
     width: 700px;
+}
+
+.links {
+    display: flex;
+    justify-content: flex-end;
+
+    /* border: 1px solid white; */
+}
+
+.login {
+    margin-left: 20px;
+}
+
+.header-container {
+    display:flex;
+    justify-content: center;
+
+    color: blue;
+    background-color: lightskyblue;
+}
+/* icon color in social-icons.svg are #5995DA */
+
+.header {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 700;
+    height: 300px;
 }
