@@ -11,7 +11,12 @@ Steps:
             their own divs.
 3. Define vertical alignment, using align-items:, center in this case. The
    options are: flex-start (top), flex-end (bottom), center, stretch, & baseline
- */
+ 
+Flex items are flexible, meaning they can shrink and stretch to match the width 
+of their containers. The flex: property defines the width of individual items by
+telling the parent flex container how to allocate its space for each child item.
+
+   */
 
 * {
     margin: 0;
@@ -33,7 +38,7 @@ Steps:
     justify-content: space-between;
     
     /* border: 1px solid white; */
-    width: 700px;
+    width: 900px;
 }
 
 .links {
@@ -46,9 +51,12 @@ Steps:
 .login {
     margin-left: 20px;
 }
+.signup{
+    margin-left: auto;
+}
 
 .header-container {
-    display:flex;
+    display: flex;
     justify-content: center;
 
     color: blue;
@@ -57,10 +65,84 @@ Steps:
 /* icon color in social-icons.svg are #5995DA */
 
 .header {
-    display:flex;
+    display: flex;
     justify-content: space-between;
     align-items: center;
 
-    width: 700;
+    width: 900px;
     height: 300px;
 }
+/* 
+.social, .logo, .subscribe {
+    border: 1px solid white
+} */
+
+.social, .subscribe {
+    /* An item's align-self attr overrides it's parent align-items attr */
+    align-self: flex-end; 
+    margin-bottom: 20px;
+
+    /* border: 1px solid white; */
+}
+
+.photo-grid-container {
+    display: flex;
+    justify-content: center;
+}
+
+.photo-grid {
+    display: flex;
+    justify-content: /*flex-start*/ center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+
+    width: 900px;
+}
+.photo-grid-item {
+    /* border: 1px solid white; */
+    width: 300px;
+    height: 300px;
+}
+
+/* The Order: attribute allows you to control the order of individual items 
+   in a flexbox. By default, each item has order: 0; and changing an item's
+   order moves it, relative to all other items. So if all items are 0, and an
+   item is changed to 1, that item will come after all 0'd items. */
+
+.first-item {
+    order: 1;
+}
+
+.last-item {
+    order: -1;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-item {
+    /* flex:1 tells the footer items to stretch to match the width of footer.
+    Since all footer items have the same flex, they will share the space of the
+    parent flex container evenly. */
+    flex: 1;
+
+    border: 1px solid white;
+    background-color: lightskyblue;
+    height: 200px;
+}
+.footer-three {
+/* However, if one footer item has a larger flex value (in this case, 2), it 
+   will take more space from the parent flex container (in this case, 2x as much
+   as the other items). */
+    flex: 2;
+}
+
+.footer-one, .footer-three {
+    background-color: blue;
+    flex: initial; /* overrides flex:2 because its lower */
+    width: 300px;
+}
+
