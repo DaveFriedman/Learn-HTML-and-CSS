@@ -1,0 +1,39 @@
+/* Static positioning vs Relative, Absolute, and Fixed positioning:
+    Most elements should be laid out statically. Use relative, absolute, 
+    and fixed positioning to animate a UI or tweak a specific element without
+    disrupting the overall page. Useful for things like dropdown menus.
+    Positioning is static if it's based only on the browser canvas. 
+    It's relative if a div element is based on the location of another 
+    browser element. 
+    It's absolute if a div element is based on a measured (px, etc.) 
+    distance from somewhere on the browser canvas.
+    It's fixed if a div element does not move, even if the scrollbar does.
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 1200px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.example {
+    display: flex;
+    justify-content: space-around;
+
+    width: 800px;
+    margin: 50px 0;
+    background-color: blue;
+}
+
+.item img {
+    display: block;
+}
