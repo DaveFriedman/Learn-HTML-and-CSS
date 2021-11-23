@@ -2,8 +2,20 @@
     1. Set a fixed header, and set the logo and menu to opposite sides
        using justify-content: space-between;
     2. Use display:inline to have the menu elements display horizontally.
-    3. Use margin-right to create margins between menu items, but cancel that for
-       the rightmost element by setting last-of-type's margin-right to 0px.
+    3. Use margin-right to create margins between menu items, but cancel that 
+       for the rightmost element by setting last-of-type's margin-right to 0px.
+    4. Add a submenu 'features-menu'. flex-direction:column so it will open
+       downwards. 
+    5. To prevent the top-level menu items from being pushed by the submenu, 
+       position the submenu to be absolute, relative to the menu div.
+    6. To prevent the submenu from covering the top menu, set its z-index to 
+       2 and set the top menu's z-index to 1. Note that "Features" is wrapped
+       in a <span> to allow it to take the z-index styling. Spands are just
+       inline divs.
+    7. To make the submenu invisible until hovered, apply the submenu styling to
+       the .dropdown div, when dropdown is hovered over, and set .features-menu
+       to display:none. Basically, put all the submenu styling in the parent div
+       and set the styling to display on hover only. 
     */
 
 * {
@@ -34,18 +46,52 @@ a:hover {
 
     width: 100%;
     padding: 50px;
-    background: lightskyblue;
+    background: lightsteelblue;
 }
 
 .menu {
     margin-top: 15px;
 }
-
 .menu > li {
-    display: inline;
+    display: inline; /* Also removes the list-style bullets */
     margin-right: 50px; 
 }
-
 .menu > li:last-of-type {
     margin-right: 0;
+}
+
+.dropdown {
+    position: relative;
+}
+.dropdown > span {
+    z-index: 2;
+    position: relative;
+    cursor: pointer;
+}
+
+/* formerly .features-menu { */
+.dropdown:hover .features-menu {
+    display: flex;
+    flex-direction: column;    
+    position: absolute;
+    top: -25px;
+    left: -30px;
+    z-index: 1;
+    
+    background: lightskyblue;
+    border-radius: 5px;
+    padding-top: 60px;
+}
+
+.features-menu {
+    display: none;
+}
+.features-menu li {
+    list-style: none;
+    border-bottom: 1px solid white;
+    padding: 0 40px 10px 20px;
+    margin: 10px;
+}
+.features-menu li:last-of-type {
+    border-bottom: none;
 }
