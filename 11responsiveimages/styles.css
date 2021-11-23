@@ -1,0 +1,107 @@
+/* Copy + continuation of 10responsivedesign */
+
+/* Responsive design is the idea that websites should display equally well 
+    on screens of all sizes, with the final goal of eliminating the 
+    distinction between mobile and desktop versions of a website.
+   This is accomplished through CSS media queries. Media queries are a way 
+    to present the same HTML but apply different CSS rules, depending on 
+    the user's device.
+   Use @media (https://developer.mozilla.org/en-US/docs/Web/CSS/@media)
+   Base styles go outside the media queries so we can override them later
+   Easy to re-order divs when it makes sense using order: attribute.
+   Finally: use the HTML tag <meta name='viewport' [...] /> to disable 
+   viewport zooming for mobile browsers. This forces them to view the layout 
+   as intended, instead of trying to view a desktop browser in a mobile window.
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply these styles in all contexts */
+.page {
+    display: flex;
+    flex-wrap: wrap; /* fits div boxes into available space */
+}
+
+.section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 200px;
+}
+
+.menu {
+    background-color: navy;
+    height: 100px;
+}
+.header {
+    background-color: cornflowerblue;
+}
+.content {
+    background-color: lightgrey;
+    height: 600px;
+}
+.sign-up {
+    background-color: lightsalmon;
+}
+.feature-1 {
+    background-color: pink;
+}
+.feature-2 {
+    background-color: gold;
+}
+.feature-3 {
+    background-color: lightseagreen;
+}
+
+/* Mobile styles */
+@media only screen and (max-width: 520px) {
+    body {
+        background-color: brown;
+    }
+}
+
+/* Tablet styles */
+@media only screen and (min-width: 521px) and (max-width: 960px) {
+    /* body {
+        background-color: goldenrod; }*/
+
+    /* Setting these 4 divs to 50% each will create a 4x4 grid */
+    .sign-up,
+    .feature-1,
+    .feature-2,
+    .feature-3 {
+        width: 50%;
+    }
+}
+
+/* Desktop styles */
+@media only screen and (min-width: 961px) {
+    /* body {
+        background-color: cornflowerblue; } */
+    .page {
+        width: 960px;
+        margin: 0 auto;
+    }
+    .feature-1, .feature-2, .feature-3 {
+        width: 33.3%;
+    }
+    .header {
+        height: 400px;
+    }
+    /* Use order:1&2 to change which divs come first. Recall that the 
+       default order # is 0, so the feature divs, which haven't changed,
+       now appear above sign-up (#1) and content (#2). */
+    .sign-up {
+        height: 200px;
+        order: 1
+    }
+    .content {
+        order: 2;
+    }
+}
