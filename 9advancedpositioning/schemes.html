@@ -3,7 +3,19 @@
     <head>
         <meta charset='UTF-8'/>
         <link href='styles.css' rel='stylesheet'/>
-        <title>Advanced positioning!</title>
+        <title>different types of positioning schemes!</title>
+        <script>
+            var left = 0;
+            function frame() {
+                var element = document.querySelector('.item-relative');
+                left += 2;
+                element.style.left = left + 'px';
+                if (left >= 300) {
+                    clearInterval(id)
+                }
+            }
+            var id = setInterval(frame, 10)
+        </script>
     </head>
     <body>
         

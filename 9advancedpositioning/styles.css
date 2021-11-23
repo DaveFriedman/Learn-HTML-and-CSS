@@ -3,8 +3,9 @@
     and fixed positioning to animate a UI or tweak a specific element without
     disrupting the overall page. Useful for things like dropdown menus.
     Positioning is static if it's based only on the browser canvas. 
-    It's relative if a div element is based on the location of another 
-    browser element. 
+    It's relative if a div element is moved somewhere different, based on where
+    that element would normally appear in the static positioning of a page. So
+    an element is positioned somwehere relative to its default static position.
     It's absolute if a div element is based on a measured (px, etc.) 
     distance from somewhere on the browser canvas.
     It's fixed if a div element does not move, even if the scrollbar does.
@@ -37,3 +38,48 @@ body {
 .item img {
     display: block;
 }
+
+/* Move the item-relative div 30px down and 30px to the right, relative to its
+    static position. Rephrased: offset the div 30px from the top and 30px from
+    the left of its static position. */
+.item-relative {
+    position: relative;
+    top: 30px;
+    left: 30px;
+    /* bottom: 30px;
+    right: 30px; */
+    /* Can't have all 4 lines because they contradict each other. First lines
+        take priority. */
+}
+
+/* Move the item-absolute div 10px away from the top of the browser and 10px 
+    away from the left of the browser. 
+    Note that absolute positioning removes the item from the static flow, while
+    relative positioning does not. Relative leaves its skeleton, absolute does
+    not, and other items fill in the empty space. */
+.item-absolute {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+/* Absolute elements are relative to the nearest parent container that does not
+     have a static position (aka, has a relative, absolute, or fixed position).
+     If all parent containers are static, the item-absolute div will be 
+     positioned relative to the browser. If (as below) the parent div 'absolute'
+     is given a non-static (in this case, relative) position, the item-absolute
+     will be fixed 10px away from the top & left of the absolute div. */
+.absolute {
+    position: relative;
+}
+
+/* Fixed elements do not move on the page. */
+.item-fixed {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+/* Animation is a major use case for relative and absolute positioning. 
+    The JS code in <head> creates an animation that continually updates the 
+    'left' property of .item-relative. The result is to float the .item-element
+    div to the right, until it is at the edge of its container. */

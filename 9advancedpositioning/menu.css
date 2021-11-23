@@ -1,0 +1,51 @@
+/* Making a dropdown menu
+    1. Set a fixed header, and set the logo and menu to opposite sides
+       using justify-content: space-between;
+    2. Use display:inline to have the menu elements display horizontally.
+    3. Use margin-right to create margins between menu items, but cancel that for
+       the rightmost element by setting last-of-type's margin-right to 0px.
+    */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 1200px;
+    font-size: 18px;
+    font-family: sans-serif;
+    color: black;
+}
+
+a:link, a:visited {
+    color: black;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+.header {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+    padding: 50px;
+    background: lightskyblue;
+}
+
+.menu {
+    margin-top: 15px;
+}
+
+.menu > li {
+    display: inline;
+    margin-right: 50px; 
+}
+
+.menu > li:last-of-type {
+    margin-right: 0;
+}
