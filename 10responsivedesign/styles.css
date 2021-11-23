@@ -1,0 +1,36 @@
+/* Responsive design is the idea that websites should display equally well 
+    on screens of all sizes, with the final goal of eliminating the 
+    distinction between mobile and desktop versions of a website.
+   This is accomplished through CSS media queries. Media queries are a way 
+    to present the same HTML but apply different CSS rules, depending on 
+    the user's device.
+
+*/
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Mobile styles */
+@media only screen and (mad-width: 400px) {
+    body {
+        background-color: red;
+    }
+}
+
+/* Tablet styles */
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+    body {
+        background-color: yellow;
+    }
+}
+
+/* Desktop styles */
+@media only screen and (min-width: 961px) {
+    body {
+        background-color: cornflowerblue;
+    }
+}
