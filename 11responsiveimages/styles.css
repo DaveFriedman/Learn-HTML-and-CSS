@@ -1,18 +1,32 @@
 /* Copy + continuation of 10responsivedesign */
 
-/* Responsive design is the idea that websites should display equally well 
-    on screens of all sizes, with the final goal of eliminating the 
-    distinction between mobile and desktop versions of a website.
-   This is accomplished through CSS media queries. Media queries are a way 
-    to present the same HTML but apply different CSS rules, depending on 
-    the user's device.
-   Use @media (https://developer.mozilla.org/en-US/docs/Web/CSS/@media)
-   Base styles go outside the media queries so we can override them later
-   Easy to re-order divs when it makes sense using order: attribute.
-   Finally: use the HTML tag <meta name='viewport' [...] /> to disable 
-   viewport zooming for mobile browsers. This forces them to view the layout 
-   as intended, instead of trying to view a desktop browser in a mobile window.
-*/
+/* Often, we want to display different images (or, really, the same image
+    but of a different size/resolution, depending on what screen size the
+    user has. 
+   The easiest way is to use .svg images, which are vector-based. Vector-
+    based images scale to any size.
+   Raster images (aka pixle-based), like .png, .jpg, and .gif are more
+    sensitive to screen resolution and must be handled differently.
+   The "lazy" way to handle raster images is just to use high-res images
+    everywhere, even on small screens. Pro: everything is highres and pretty.
+    Con: Costs a lot of bandwith for no value, it's wasteful and unoptimized.
+   Also, some screens/layouts would prefer different aspect ratios, which
+    can't be covered by only one image file. (Or can it?)
+   3 scenarios for optimizing responsive images: 
+    - A standard-res screen, doesn't need a highres image.
+    - A retina screen, can use but may not need a highres image. Can optimize
+      when using very large images.
+    - A desktop layout that's different from your mobile layout, where you
+      want different aspect ratios for different devices.
+   HTML's <img srcset='<filepath/name> <pixel density descriptor>' />
+    https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
+    ex: <img src='images/illustration-small.png'
+             srcset='images/illustration-small.png 1x,
+                     images/illustration-big.png 2x' />
+    or: srcset='images/illustration-small.png 2000w', where '2000w' means 
+    2000 pixels wide 
+    
+   */
 
 * {
     margin: 0;
@@ -41,6 +55,19 @@
 }
 .header {
     background-color: cornflowerblue;
+    height:auto;
+    justify-content: inherit;
+    align-items: inherit;
+}
+.photosrcset img {
+    display: none;
+    /* display: block; commment this line out to demonstrate <picture> */
+    width: 100%;
+}
+.photopicture img {
+    /* display: none; */
+    display: block; /* comment this line out to demonstrate srcset */
+    width: 100%;
 }
 .content {
     background-color: lightgrey;
@@ -58,6 +85,11 @@
 .feature-3 {
     background-color: lightseagreen;
 }
+.illustration img {
+    width: 100%;
+    /* when using the .png and the new div, now needs: */
+    display: block;
+}
 
 /* Mobile styles */
 @media only screen and (max-width: 520px) {
@@ -68,34 +100,34 @@
 
 /* Tablet styles */
 @media only screen and (min-width: 521px) and (max-width: 960px) {
-    /* body {
-        background-color: goldenrod; }*/
+    body {
+        background-color: goldenrod; }
 
     /* Setting these 4 divs to 50% each will create a 4x4 grid */
-    .sign-up,
-    .feature-1,
-    .feature-2,
-    .feature-3 {
+    .sign-up, .feature-1, .feature-2, .feature-3 {
         width: 50%;
     }
 }
 
 /* Desktop styles */
 @media only screen and (min-width: 961px) {
-    /* body {
-        background-color: cornflowerblue; } */
+    body {
+        background-color: cornflowerblue; }
     .page {
         width: 960px;
         margin: 0 auto;
     }
-    .feature-1, .feature-2, .feature-3 {
+    .feature-1, .feature-3 {
         width: 33.3%;
+    }
+    .feature-2 {
+        width: 33.4%;
     }
     .header {
         height: 400px;
     }
     /* Use order:1&2 to change which divs come first. Recall that the 
-       default order # is 0, so the feature divs, which haven't changed,
+       default order # is 0, so the feature divs, which haven't changed, 
        now appear above sign-up (#1) and content (#2). */
     .sign-up {
         height: 200px;
