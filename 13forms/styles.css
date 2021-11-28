@@ -10,15 +10,15 @@ body {
     align-items: center;
 
     color: black;
-    background-color: white;
+    background-color: navy;
     font-family: "Helvetica", "Arial", sans-serif;
     font-size: 16px;
     line-height: 1.3;
 }
 .speaker-form-header {
     text-align: center;
-    background-color: lightgrey;
-    border: 1px solid grey;
+    background-color: cornflowerblue;
+    border: 1px solid dimgrey;
     border-radius: 3px;
 
     width: 80%;
@@ -28,4 +28,162 @@ body {
 .speaker-form-header h1 {
     font-size: 30px;
     margin-bottom: 20px;
+}
+.speaker-form {
+    background-color: cornflowerblue;
+    border: 1px solid dimgrey;
+    border-radius: 3px;
+
+    width: 80%;
+    padding: 50px;
+    margin: 0 0 40px 0;
+}
+
+.form-row {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+    
+    margin-bottom: 40px;   
+}
+.form-row label {
+    margin-bottom: 15px;
+}
+/* Styling blank text boxes */
+.form-row input[type='text'],
+.form-row input[type='email'],
+.form-row select,
+.form-row textarea {
+    background-color: lightskyblue;
+    border: 2px solid dimgrey;
+    border-radius: 3px;
+    width: 100%;
+    padding: 7px;
+    font-size: 14px;
+}
+.form-row input[type='text']:invalid,
+.form-row input[type='email']:invalid {
+    border: 2px solid red;
+    color: indianred;
+    box-shadow: none;
+}
+/* Styling the dropdown menu */
+.form-row select {
+    width: 100%;
+    padding: 5px;
+    font-size: 14px; /* This will fail in Chrome or Safari, but */
+    -webkit-apearance: none /*This will make it work */
+    /* This is a hack, not recommended. more at: 
+    https://developer.mozilla.org/en-US/docs/Web/CSS/appearance */
+}
+
+/* radio buttons can't be styled with flexbox, 
+    so we use the legacy float method */
+.legacy-form-row {
+    border:none;
+    margin-bottom: 40px;
+}
+.legacy-form-row legend {
+    margin-bottom: 15px;
+}
+.legacy-form-row .radio-label {
+    display: block;
+    font-size: 14px;
+    padding: 0 20px 0 10px;
+    /* border: 2px solid navy; */
+}
+.legacy-form-row input[type='radio'] {
+    margin-top: 2px;
+}
+.legacy-form-row .radio-label,
+.legacy-form-row input[type='radio'] {
+    float: left;
+}
+
+.form-row textarea {
+    font-family: "Helvetica", "Arial", sans-serif;
+    font-size: 14px;
+
+    border: 2px solid dimgrey;
+    border-radius: 3px;
+
+    min-height: 200px;
+    margin-bottom: 10px;
+    padding: 7px;
+    resize: none;
+}
+.form-row .instructions {
+    color: rgb(0,0,0,.66);
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.form-row .checkbox-label {
+    margin-bottom: 0;
+}
+.form-row button {
+    font-size: 16px;
+    font-weight: bold;
+
+    color: white;
+    background-color: navy;
+
+    border: none;
+    border-radius: 2px;
+
+    padding: 10px 40px;
+    cursor: pointer;
+}
+.form-row button:hover {
+    background-color: lightskyblue;
+}
+.form-row button:active {
+    background-color: forestgreen;
+}
+
+/* For full-size displays */
+@media only screen and (min-width: 700px) {
+    .speaker-form-header, .speaker-form {
+        width: 600px;
+    }
+    .form-row {
+        flex-direction: row;
+        align-items: flex-start;
+        margin-bottom: 20px;
+    }
+    .form-row input[type='text'],
+    .form-row input[type='email'],
+    .form-row select,
+    .form-row textarea {
+        width: 250px;
+        height: initial;
+    }
+    .form-row label {
+        text-align: right;
+        width: 120px;
+        margin-top: 7px;
+        padding-right: 20px;
+    }
+
+    .legacy-form-row {
+        margin-bottom: 10px;
+    }
+    .legacy-form-row legend {
+        float: left;
+
+        width: 120px;
+        text-align: right;
+        padding-right: 20px;
+    }
+    .form-row .instructions {
+        margin-left: 120px;
+    }
+    .form-row .checkbox-label {
+        margin-left: 120px;
+        width: auto;
+    }
+    .form-row button {
+        margin-left: 120px;
+    }
 }
